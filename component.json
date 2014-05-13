@@ -1,0 +1,12 @@
+{
+  "name": "page-loaded",
+  "repo": "brannonlucas/page-loaded",
+  "description": "Returns time to domComplete",
+  "version": "0.0.1",
+  "keywords": ["page loaded"],
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
