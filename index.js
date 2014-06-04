@@ -5,18 +5,21 @@
 module.exports = pageloaded;
 
 /**
- * Return the time to domComplete of page
+ * Return the time in milliseconds to domComplete of page
  *
  * @returns {String}
  */
 
-function pageloaded() {
-
-  // Connectiong start
-  var cstart = window.performance.timing.connectStart;
-
-	// DOMload complete
-  var domLoaded = window.performance.timing.domComplete;
-
-  return domLoaded - cstart + " ms";
-}
+(function call() {
+  var dc = window.performance.timing.domComplete;
+  var cs = window.performance.timing.connectStart;
+  var time = dc - cs;
+  if(dc) {
+    console.log('DOM Complete: Load Time', time + "ms");
+    return time;
+  } else {
+    setTimeout(function(){
+      call();
+    }, 1);
+  }
+})();
